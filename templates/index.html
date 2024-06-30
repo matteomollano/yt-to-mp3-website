@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>yt to mp3</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='images/yt-icon.png') }}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="left-section">
+                    <img src="{{ url_for('static', filename='images/yt-icon.png') }}" id="yt_logo">
+                </div>
+                <div class="right-section">
+                    <p class="header-text" id="title">yt to mp3</p>
+                    <p class="header-text" id="description">A website to download songs from YouTube</p>
+                </div>
+            </div>
+
+            <div class="content">
+                <form action="/" method="POST" enctype="multipart/form-data">
+                    <!--Song Information-->
+                    <div class="form-section">
+                        <p class="form-section-header">Song Information</p>
+                        <input class="form-textbox" type="text" name="url" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        <input class="form-textbox" type="text" name="title" placeholder="Song Title">
+                        <input class="form-textbox" type="text" name="artist" placeholder="Artist">
+                    </div>
+
+                    <!--Cover Art Selection-->
+                    <div class="form-section">
+                        <p class="form-section-header">Cover Art Selection</p>
+                        <select class="form-select" id="cover-art-selection" name="cover-art-selection">
+                            <option value="youtube-thumbnail">YouTube Thumbnail</option>
+                            <option value="custom-cover-art">Custom Cover Art</option>
+                            <option value="no-cover-art">No Cover Art</option>
+                        </select>
+
+                        <div class="custom-cover-art-input" style="display: none;">
+                            <label for="custom-cover-art-file" class="custom-file-upload-btn">Upload File</label>
+                            <span id="file-selected"></span>
+                            <input class="form-file-input" type="file" id="custom-cover-art-file" name="custom-cover-art-file" accept="image/*">
+                        </div>
+                    </div>
+
+                    <!--Convert Button-->
+                    <div class="form-section">
+                        <input class="convert-btn" type="submit" value="Convert">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</html>
