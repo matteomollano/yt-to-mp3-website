@@ -29,22 +29,32 @@ brew install ffmpeg
 git clone https://github.com/matteomollano/yt-to-mp3-website.git
 ```
 
-2. Install the requirements <br>
+2. Navigate inside the project folder and create a virtual environment <br>
+```
+python3 -m venv myenv
+```
+
+3. You should now see a myenv directory in your project folder. Activate the virtual environment <br>
+```
+source myenv/bin/activate
+```
+
+4. Install the requirements <br>
 ```
 pip3 install -r requirements.txt
 ```
 
-3. Run app.py to start the Flask server <br>
+5. Run app.py to start the Flask server <br>
 ```
 python3 app.py
 ```
 
-4. Open a web browser and go to the following <br>
+6. Open a web browser and go to the following <br>
 ```
 localhost:5000
 ```
 
-5. Enter the YouTube URL, song name, and artist name for the song that you want to download. You can also choose to use the YouTube video thumbnail as cover art, upload a custom cover art, or use no cover art <br>
+7. Enter the YouTube URL, song name, and artist name for the song that you want to download. You can also choose to use the YouTube video thumbnail as cover art, upload a custom cover art, or use no cover art <br>
 ```
 The song will now download as an mp3 to your downloads folder!
 ```
