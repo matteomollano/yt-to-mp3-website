@@ -58,3 +58,25 @@ localhost:5000
 ```
 The song will now download as an mp3 to your downloads folder!
 ```
+<br>
+
+## IF YOU RUN INTO PROBLEMS
+If you run into a ```RegexMatchError: get_throttling_function_name: could not find match for multiple``` error or something similar, this is because the pytube library I am using has not been updated in over a year.<br><br>
+
+In order to fix this problem, you need to change lines 272 and 273 in pytube's cipher.py from
+```
+r'a\.[a-zA-Z]\s*&&\s*\([a-z]\s*=\s*a\.get\("n"\)\)\s*&&\s*'
+r'\([a-z]\s*=\s*([a-zA-Z0-9$]+)(\[\d+\])?\([a-z]\)',
+```
+to
+```
+r'a\.[a-zA-Z]\s*&&\s*\([a-z]\s*=\s*a\.get\("n"\)\)\s*&&.*?\|\|\s*([a-z]+)',
+r'\([a-z]\s*=\s*([a-zA-Z0-9$]+)(\[\d+\])\([a-z]\)',
+```
+
+<br>
+
+cipher.py can be found at the following path in your project folder (your python version may differ):
+```
+myenv/lib/python3.9/site-packages/pytube/cipher.py
+```
